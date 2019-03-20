@@ -1,3 +1,6 @@
+const express = require('express')
+const app = express()
+
 //callback
 let promedio = (i, j, k, callback) => {
     setTimeout(() => {
@@ -7,5 +10,12 @@ let promedio = (i, j, k, callback) => {
     }, 2000);
 }
 promedio(3, 4, 5, function(resultado) {
-    console.log('El promedio obtenido es de ' + resultado);
+    texto = `El promedio obtenido es de ${resultado}`;
 });
+
+
+app.get('/', function(req, res) {
+    res.send(texto)
+})
+
+app.listen(3000)
